@@ -26,4 +26,4 @@ function welcomeToWork1(){
     alert ("welcome to my work1");
     mynode.innerHTML="Thank you for visiting my work1";
 }
- //button.appendChild(mynote);
+ //button.appendChild(mynote); 
