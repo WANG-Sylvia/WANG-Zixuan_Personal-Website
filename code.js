@@ -1,5 +1,5 @@
  var title = document.querySelector("h1");
- title.innerHTML= "This is title from code.js";
+ //title.innerHTML= "This is title from code.js";
  
  //fetch the button from the DOM
  var button =document.querySelector("#CV");
@@ -8,7 +8,7 @@
     alert("Let me tell you more about me!");
  }
   var button =document.querySelector("#about_me");
- button.addEventListener("click",myfunction);
+ //button.addEventListener("click",myfunction);
  function myfunction(){
     alert("Let me tell you more about me!");
  }

@@ -1,3 +1,4 @@
+(function(){
 document.addEventListener('DOMContentLoaded', function() {
     // 调用函数来生成图表
     createArtworkPieChartInSection('vis-newplot');
@@ -129,3 +130,4 @@ function createArtworkPieChartInSection(containerId) {
         .attr("class", "legend-text")
         .text(d => `${d.name} (${d.value}%)`);
 }
+})();

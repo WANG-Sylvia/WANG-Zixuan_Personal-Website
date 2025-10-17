@@ -1,28 +1,36 @@
-*{
+html {
+    background-color: rgb(224, 183, 183);
+    scroll-behavior: smooth;
+}
+
+* {
     color: black;
     margin: 10px;
     font: 16px Tahoma;
-    
+
 }
+
 button {
-    color:black;
-}
-.box{
-    display:flex;
-    
-}
-.box div{
-    border:solid 1px black;
+    color: black;
 }
 
-.grid-container{
-    display:grid;
-    grid-template-rows:100px 100px;
-    grid-template-columns:100px 100px 100px;
-    grid-gap:1px;
+.box {
+    display: flex;
+
 }
 
-.grid-item1{
+.box div {
+    border: solid 1px black;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 1px;
+}
+
+.grid-item1 {
     background: lightgray;
     border: black 1px solid;
     grid-column-start: 1;
@@ -31,7 +39,7 @@ button {
     grid-row-end: 2;
 }
 
-.grid-item2{
+.grid-item2 {
     background: lightgray;
     border: black 1px solid;
     grid-column-start: 3;
@@ -40,7 +48,7 @@ button {
     grid-row-end: 3;
 }
 
-.grid-item3{
+.grid-item3 {
     background: lightgray;
     border: black 1px solid;
     grid-column-start: 1;
@@ -49,45 +57,49 @@ button {
     grid-row-end: 3;
 }
 
-h1{color: sienna;}
-button{
-    border:2px solid #aaa;
+h1 {
+    color: sienna;
+}
+
+button {
+    border: 2px solid #aaa;
     background-color: skyblue;
 }
 
-header, section{
+header,
+section {
     margin: 2em auto;
-    width: min(75em,100%);
+    width: min(75em, 100%);
     background-color: antiquewhite;
-    padding: min(2em,15%);
+    padding: min(2em, 15%);
     border-radius: 1em;
 }
 
-nav{
+nav {
     margin: 1em auto 1em auto;
-    width: min(1000px,100%);
+    width: min(1000px, 100%);
     font-size: 1.5em;
 }
 
-nav ul{
+nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
-    gap:2em;
+    gap: 2em;
 }
 
-nav p:first-child{
+nav p:first-child {
     margin-right: auto;
 }
 
-button.subpage{
+button.subpage {
     border-radius: .3em;
     font-size: 1.2em;
     color: black;
     background-color: aliceblue;
 }
 
-.flex-container{
+.flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,21 +107,100 @@ button.subpage{
     gap: 3em;
 }
 
-hl{
+hl {
     font-size: 2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.intro_button{
+.intro_button {
     display: inline-block;
     text-decoration: none;
     color: white;
-    background-color: orange;
+    background-color: rgb(127, 62, 127);
     padding: .75em 1em;
     margin-top: 0em;
     border-radius: 1em;
 }
 
-.text_container{
+.intro_button1 {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(193, 7, 63);
+    padding: .75em 1em;
+    margin-top: 0em;
+    border-radius: 1em;
+}
+
+.intro_button2 {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(136, 11, 11);
+    background-color: rgb(127, 101, 101);
+    padding: .75em 1em;
+    margin-top: 0em;
+    border-radius: 1em;
+}
+
+.text_container {
     flex: 0 1 40em;
+}
+
+/* Basic CSS for the tree */
+.node circle {
+    fill: #fff;
+    stroke-width: 2px;
+}
+
+.node text {
+    font: 10px sans-serif;
+    font-weight: normal;
+    fill: #333;
+}
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+
+/* Responsive SVG */
+#vis-treeplot svg {
+    width: 800px;
+    height: 400px;
+}
+
+/* Legend Styling */
+.legend {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+.legend rect {
+    width: 10px;
+    height: 10px;
+}
+
+/* Style for the main title */
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style for the legend container */
+#legend-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style for the legend title */
+#legend-container h2 {
+    font-family: sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.treetitle {
+    text-align: center;
 }

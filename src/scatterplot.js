@@ -1,3 +1,4 @@
+(function(){
 const data = [
             { year: 2021, type: "Painting", count: 10 },
             { year: 2021, type: "Sculpture", count: 3 },
@@ -144,3 +145,4 @@ const data = [
                 .style("text-anchor", "start")
                 .text(type);
         });
+    })();
