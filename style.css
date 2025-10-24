@@ -205,4 +205,70 @@ h1 {
     text-align: center;
 }
 
+#node_link_diagram svg{
+    text-align: center; /* 居中对齐内容 */
+        align-items: center; /* 水平居中对齐 */
+      width: 1200px;
+    height: 500px;
 
+    }
+    .links line {
+      stroke: #1a73bc;
+      stroke-opacity: 0.6;
+    }
+    .nodes circle {
+      stroke: #742135;
+      stroke-width: 1.5px;
+    }
+    .nodes text {
+      font-size: 12px;
+      font-family: sans-serif;
+    }
+
+.table-title {
+    font-size: 34px; /* 增加标题字号 */
+    color: #523309; /* 更改标题颜色 */
+    margin-bottom: 18px; /* 添加标题与段落之间的间距 */
+        margin: 0 auto; /* 居中段落 */
+}
+
+.table-description {
+    font-size: 16px; /* 段落字号 */
+    color: #0f1314; /* 更改段落颜色 */
+    max-width: 800px; /* 控制段落宽度 */
+      margin: 0 auto; /* 居中段落 */
+}
+
+
+body {
+    font-family: sans-serif;
+}
+
+.matrix-container {
+    width: 600px; /* 调整容器宽度 */
+    overflow-x: auto; /* 添加水平滚动条 */
+}
+
+
+.matrix {
+    border-collapse: collapse;
+}
+
+.matrix th,
+.matrix td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #49b12a;
+}
+
+.matrix th {
+    background-color: #cfcf9f;
+}
+
+.matrix td {
+    background-color: #bcc1cb;
+}
+
+.matrix td.highlighted {
+    background-color: #e79393; /* 高亮单元格的颜色 */
+}
