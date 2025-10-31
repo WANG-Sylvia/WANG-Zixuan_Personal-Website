@@ -82,24 +82,67 @@
         </div>
     </section>
  <script src="src/adjacency.js"></script>
+
+
+<html lang="zh-CN">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #dot-density-map-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平居中 */
+        }
+
+        #dot-density-map {
+            /*width: 960px;*/ /* 宽度可以根据需要调整 */
+            /*height: 600px;*/ /* 高度可以根据需要调整 */
+        }
+
+        #map-title {
+            text-align: center;
+            margin-bottom: 10px; /* 标题与地图之间的间距 */
+        }
+
+        #map-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center; /* 垂直居中 */
+        }
+
+        #legend {
+            margin-left: 20px; /* 图例与地图之间的间距 */
+        }
+    </style>
+
+
+
+<section id="dot-density-map-container">
+    <h2 id="map-title">The places that have seen my footprints</h2>
+    <div id="map-container">
+        <div id="dot-density-map"></div>
+        <div id="legend"></div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script src="https://d3js.org/d3-geo-projection.v4.min.js"></script>
+<script src="src/dot-density-map.js"></script>
+
+
+
+<section id="symbol-map-container">
+    <h2 id="symbol-map-title">World Map of Random Visitors</h2>
+    <section id="symbol-map"></section>
+</section>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
     
 
-       <!-- <div class="box">
-            <div>One</div>
-             <div>Two</div>
-              <div>Three
-                <br>first line
-                <br>second lines
-            </div>
-        </div>
+ <script src="src/symbol-map.js"></script>
 
-        <div class="grid-container">
-            <div  id="my_work1" class="grid-item1">My Work1</div>
-            <div class="grid-item2">My Work2</div>
-             <div class="grid-item3">My Work3</div>
-        </div>
 
-        <script src="code.js"></script>-->
     </body>
     
 </html>

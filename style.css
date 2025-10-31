@@ -272,3 +272,122 @@ body {
 .matrix td.highlighted {
     background-color: #e79393; /* 高亮单元格的颜色 */
 }
+
+.custom-body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; /* 修改为横向布局 */
+    align-items: flex-start; /* 顶部对齐 */
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.custom-dot-density-map-container {
+    width: 75%; /* 地图容器占据大部分空间 */
+    max-width: 960px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-svg {
+    display: block;
+    margin: auto;
+}
+
+.custom-tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    font: 12px sans-serif;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-legend {
+    width: 25%; /* 图例占据剩余空间 */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.custom-legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.custom-legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+    .custom-body {
+        flex-direction: column; /* 小屏幕下改为纵向布局 */
+        align-items: center;
+    }
+
+    .custom-dot-density-map-container {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .custom-legend {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+  #symbol-map {
+            width: 90%; /* 在较小屏幕上占据更多宽度 */
+            max-width: 1200px; /* 限制最大宽度 */
+            height: 700px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* 确保内容不溢出 */
+        }
+
+        /* 提示框样式 */
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: white;
+            border: 1px solid gray;
+            border-radius: 4px;
+            pointer-events: none; /* 允许鼠标事件穿透 */
+            opacity: 0; /* 初始时隐藏 */
+        }
+
+        /* 确保SVG适应容器大小 */
+        svg {
+            display: block;
+            width: 100%;
+            height: 90%;
+        }
+        #symbol-map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+}
+
+#symbol-map-title {
+    text-align: center;
+    margin-bottom: 10px; /* 标题与地图之间的间距 */
+}
