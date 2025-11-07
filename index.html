@@ -116,31 +116,53 @@
         }
     </style>
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Footprint Map</title>
+    
 
 <section id="dot-density-map-container">
     <h2 id="map-title">The places that have seen my footprints</h2>
     <div id="map-container">
+        <div id="year-selector">
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" min="2004" max="2025" value="2004">
+        </div>
         <div id="dot-density-map"></div>
-        <div id="legend"></div>
+      
     </div>
 </section>
 
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
 <script src="https://d3js.org/d3-geo-projection.v4.min.js"></script>
-<script src="src/dot-density-map.js"></script>
-
 
 
 <section id="symbol-map-container">
     <h2 id="symbol-map-title">World Map of Random Visitors</h2>
     <section id="symbol-map"></section>
 </section>
+
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
     
 
  <script src="src/symbol-map.js"></script>
+
+
+<!-- Load D3 v7 and TopoJSON -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+
+<link rel="stylesheet" href="style.css">
+<!-- Map container -->
+<div id="visitor-dotmap" style="width:100%; height:600px;"></div>
+
+<!-- Load your script -->
+<script src="src/visitorDotmap.js"></script>
 
 
     </body>
