@@ -419,12 +419,12 @@ function createTreeChart() {
             {
                 name: "Internship",
                 date: "2023 - 2026",
-                description: "I worked as a Theatre Assistant at the National Centre for the Performing Arts (NCPA), deeply participating in the pre-planning, process coordination, and on-site execution of performance projects. I assisted in coordinating artist scheduling, audience flow management, and material arrangement, ensuring the smooth implementation of multiple concerts and theatrical performances. Later, I served as a Marketing Intern at Vcube Scenting (Singapore), leading content planning, visual editing, and community operations for the Xiaohongshu (Little Red Book) account. By creating fragrance lifestyle content aligned with the brand tone, I effectively increased account exposure and fan engagement, gaining cross-industry project execution and new media marketing experience.",
+                description: "Since 2023, I have completed three internships that have honed a diverse range of practical skills.",
                 children: [
                     {
                         name: "Banga Gallery",
                         date: "2022",
-                        description: "During my internship at the exhibition hall, I deeply engaged in the preparation for docent training. Leveraging my expertise in Creative Media, I led the development of docent training materials—integrating multimedia content interpretation, interactive explanation skills, and other elements—and designed simulated guided tour scenarios for practical drills, helping new docents quickly grasp the cultural connotations of exhibits and communication logic. Meanwhile, I fully assisted in the planning and implementation of the new exhibition: from the preliminary exhibit selection and exhibition flow design, to the mid-term layout of graphic display boards and debugging of interactive installations, and then to on-site coordination and promotion support after the opening. By integrating visual design thinking into exhibition details, I effectively enhanced the audience's visiting experience and docent service quality, ensuring the smooth opening of the new exhibition with positive public praise."
+                        description: "During my exhibition hall internship, I used my Creative Media skills to develop docent training materials integrating multimedia interpretation and interactive skills, plus simulated tour scenarios and assisted in the new exhibition's full process—from exhibit selection and flow design to display layout, interactive installation debugging, and on-site coordination—enhancing visitor experience and service quality to support the exhibition's smooth, well-received opening."
                     },
                     {
                         name: "Vcube Scenting",
@@ -454,99 +454,177 @@ function createTreeChart() {
     };
     
 
-    // 设置树状图尺寸
-    const margin = { top: 20, right: 120, bottom: 20, left: 120 };
-    const width = document.getElementById('tree-container').offsetWidth - margin.right - margin.left;
-    const height = document.getElementById('tree-container').offsetHeight - margin.top - margin.bottom;
+  // 设置树状图尺寸
+            const margin = { top: 20, right: 120, bottom: 20, left: 120 };
+            const width = document.getElementById('tree-container').offsetWidth - margin.right - margin.left;
+            const height = document.getElementById('tree-container').offsetHeight - margin.top - margin.bottom;
+            
+            // 创建树布局
+            const treemap = d3.tree().size([height, width]);
+            
+            // 创建层级数据
+            const root = d3.hierarchy(treeData);
+            root.x0 = height / 2;
+            root.y0 = 0;
+            
+            // 计算初始布局
+            treemap(root);
+            
+            // 创建SVG
+            const svg = d3.select("#tree-container")
+                .append("svg")
+                .attr("width", width + margin.right + margin.left)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            
+            // 添加链接
+            const link = svg.selectAll(".link")
+                .data(root.descendants().slice(1))
+                .enter()
+                .append("path")
+                .attr("class", "link")
+                .attr("d", function(d) {
+                    return "M" + d.y + "," + d.x
+                        + "C" + (d.y + d.parent.y) / 2 + "," + d.x
+                        + " " + (d.y + d.parent.y) / 2 + "," + d.parent.x
+                        + " " + d.parent.y + "," + d.parent.x;
+                });
+            
+            // 添加节点组
+            const node = svg.selectAll(".node")
+                .data(root.descendants())
+                .enter()
+                .append("g")
+                .attr("class", "node")
+                .attr("transform", function(d) { 
+                    return "translate(" + d.y + "," + d.x + ")"; 
+                });
+            
+            // 添加节点圆圈
+            node.append("circle")
+                .attr("r", 8)
+                .style("fill", function(d) {
+                    return d.depth === 0 ? "#70b0e9ff" : "#d5bee9ff";
+                })
+                .style("stroke", function(d) {
+                    return d.depth === 0 ? "#bcd1e5ff" : "#c2c0d2ff";
+                });
+            
+            // 添加节点文本
+            node.append("text")
+                .attr("dy", ".35em")
+                .attr("x", function(d) { 
+                    return d.children ? -13 : 13; 
+                })
+                .style("text-anchor", function(d) { 
+                    return d.children ? "end" : "start"; 
+                })
+                .text(function(d) { 
+                    return d.data.name; 
+                });
+                // 创建工具提示
+    const tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "node-tooltip")
+        .style("position", "absolute")
+        .style("background", "rgba(255, 255, 255, 0.95)")
+        .style("border-radius", "10px")
+        .style("padding", "15px")
+        .style("box-shadow", "0 5px 15px rgba(0, 0, 0, 0.2)")
+        .style("backdrop-filter", "blur(10px)")
+        .style("border", "1px solid #e0e0e0")
+        .style("font-family", "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif")
+        .style("font-size", "14px")
+        .style("line-height", "1.5")
+        .style("max-width", "300px")
+        .style("z-index", "1000")
+        .style("pointer-events", "none")
+        .style("opacity", 0)
+        .style("transition", "opacity 0.3s ease");
     
-    // 创建树布局
-    const treemap = d3.tree().size([height, width]);
-    
-    // 创建层级数据
-    const root = d3.hierarchy(treeData);
-    root.x0 = height / 2;
-    root.y0 = 0;
-    
-    // 计算初始布局
-    treemap(root);
-    
-    // 创建SVG
-    const svg = d3.select("#tree-container")
-        .append("svg")
-        .attr("width", width + margin.right + margin.left)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
-    // 添加链接
-    const link = svg.selectAll(".link")
-        .data(root.descendants().slice(1))
-        .enter()
-        .append("path")
-        .attr("class", "link")
-        .attr("d", function(d) {
-            return "M" + d.y + "," + d.x
-                + "C" + (d.y + d.parent.y) / 2 + "," + d.x
-                + " " + (d.y + d.parent.y) / 2 + "," + d.parent.x
-                + " " + d.parent.y + "," + d.parent.x;
-        });
-    
-    // 添加节点组
-    const node = svg.selectAll(".node")
-        .data(root.descendants())
-        .enter()
-        .append("g")
-        .attr("class", "node")
-        .attr("transform", function(d) { 
-            return "translate(" + d.y + "," + d.x + ")"; 
-        });
-    
-    // 添加节点圆圈
-    node.append("circle")
-        .attr("r", 8)
-        .style("fill", function(d) {
-            return d.depth === 0 ? "#2c3e50" : "#3498db";
-        })
-        .style("stroke", function(d) {
-            return d.depth === 0 ? "#2c3e50" : "#2980b9";
-        });
-    
-    // 添加节点文本
-    node.append("text")
-        .attr("dy", ".35em")
-        .attr("x", function(d) { 
-            return d.children ? -13 : 13; 
-        })
-        .style("text-anchor", function(d) { 
-            return d.children ? "end" : "start"; 
-        })
-        .text(function(d) { 
-            return d.data.name; 
-        });
-    
-    // 节点点击事件
-    node.on("click", function(event, d) {
-        // 更新节点详情
-        document.getElementById("node-title").textContent = d.data.name;
-        document.getElementById("node-date").textContent = d.data.date;
-        document.getElementById("node-description").textContent = d.data.description;
+    // 鼠标悬停事件 - 显示工具提示
+    node.on("mouseover", function(event, d) {
+        // 更新节点样式
+        d3.select(this).select("circle")
+            .transition()
+            .duration(200)
+            .attr("r", 10)
+            .style("fill", function(d) {
+                return d.depth === 0 ? "#34495e" : "#2980b9";
+            });
         
-        // 显示节点详情
-        const nodeDetails = document.getElementById("node-details");
-        nodeDetails.classList.add("active");
+        // 更新工具提示内容
+        tooltip.html(`
+            <div style="margin-bottom: 8px;">
+                <strong style="color: #2c3e50; font-size: 16px;">${d.data.name}</strong>
+            </div>
+            <div style="color: #3498db; font-weight: 500; margin-bottom: 8px; background: #ebf5fb; padding: 4px 8px; border-radius: 4px; display: inline-block;">
+                ${d.data.date}
+            </div>
+            <div style="color: #555; line-height: 1.6;">
+                ${d.data.description}
+            </div>
+        `);
         
-        // 添加淡入效果
-        nodeDetails.style.opacity = 0;
-        let opacity = 0;
-        const fadeIn = setInterval(function() {
-            if (opacity >= 1) {
-                clearInterval(fadeIn);
-            }
-            nodeDetails.style.opacity = opacity;
-            opacity += 0.05;
-        }, 30);
+        // 显示工具提示
+        tooltip
+            .style("left", (event.pageX + 15) + "px")
+            .style("top", (event.pageY - 15) + "px")
+            .transition()
+            .duration(300)
+            .style("opacity", 1);
+    });
+    
+    // 鼠标移出事件 - 隐藏工具提示
+    node.on("mouseout", function(event, d) {
+        // 恢复节点样式
+        d3.select(this).select("circle")
+            .transition()
+            .duration(200)
+            .attr("r", 8)
+            .style("fill", function(d) {
+                return d.depth === 0 ? "#2c3e50" : "#3498db";
+            });
+        
+        // 隐藏工具提示
+        tooltip
+            .transition()
+            .duration(200)
+            .style("opacity", 0);
+    });
+    
+    // 鼠标移动事件 - 更新工具提示位置
+    node.on("mousemove", function(event) {
+        tooltip
+            .style("left", (event.pageX + 15) + "px")
+            .style("top", (event.pageY - 15) + "px");
     });
 }
+            
+            // 节点点击事件
+            //node.on("click", function(event, d) {
+                // 更新节点详情
+              //  document.getElementById("node-title").textContent = d.data.name;
+              //  document.getElementById("node-date").textContent = d.data.date;
+              //  document.getElementById("node-description").textContent = d.data.description;
+                
+                // 显示节点详情
+               // const nodeDetails = document.getElementById("node-details");
+               // nodeDetails.classList.add("active");
+                
+                // 添加淡入效果
+             //   nodeDetails.style.opacity = 0;
+              //  let opacity = 0;
+             //   const fadeIn = setInterval(function() {
+                 //   if (opacity >= 1) {
+                //        clearInterval(fadeIn);
+                //    }
+                //    nodeDetails.style.opacity = opacity;
+                //opacity += 0.05;
+            //    }, 30);
+         //   });
+      //  }
 
 // 创建点密度地图
 function createDotDensityMap() {
@@ -674,8 +752,13 @@ function createDotDensityMap() {
         const timelineSlider = document.getElementById('timeline-slider');
         const currentYearDisplay = document.getElementById('current-year');
         
+ // 设置初始值为2025年
+        const initialYear = 2025;
+        timelineSlider.value = initialYear;
+        currentYearDisplay.textContent = initialYear;
+
         // 初始化年份显示
-        currentYearDisplay.textContent = timelineSlider.value;
+        //currentYearDisplay.textContent = timelineSlider.value;
         
         // 根据年份更新点的显示
         function updateMapByYear(year) {
@@ -780,7 +863,12 @@ function createDotDensityMap() {
         const currentYearDisplay = document.getElementById('current-year');
         
         // 初始化年份显示
-        currentYearDisplay.textContent = timelineSlider.value;
+        //currentYearDisplay.textContent = timelineSlider.value;
+        // 设置初始值为2025年
+        const initialYear = 2025;
+        timelineSlider.value = initialYear;
+        currentYearDisplay.textContent = initialYear;
+
         
         // 根据年份更新点的显示
         function updateMapByYear(year) {
@@ -821,10 +909,10 @@ function createDotDensityMap() {
             if (autoPlayInterval) {
                 clearInterval(autoPlayInterval);
                 autoPlayInterval = null;
-                playButton.textContent = '自动播放';
+                playButton.textContent = 'Automatic';
                 timelineSlider.disabled = false;
             } else {
-                playButton.textContent = '停止播放';
+                playButton.textContent = 'Stop';
                 timelineSlider.disabled = true;
                 
                 let year = parseInt(timelineSlider.value);
