@@ -341,6 +341,7 @@ function showPhotos() {
         });
     });
     
+    
     // 移动端菜单切换
     mobileMenu.addEventListener('click', function() {
         navMenu.classList.toggle('active');

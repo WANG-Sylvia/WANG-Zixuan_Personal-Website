@@ -360,14 +360,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
 /* 节点工具提示样式 */
 .node-tooltip {
     position: absolute;
@@ -779,6 +771,29 @@ body {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        padding: 20px;
+        margin: 20px;
+        min-height: calc(100vh - 120px);
+    }
+    
+    .project-categories {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .project-footer {
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+    
+    .project-extra-content {
+        padding: 20px;
+        margin: 20px 0;
+    }
 }
 
 /* 海报展示页面样式 */
