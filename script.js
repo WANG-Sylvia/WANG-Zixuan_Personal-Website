@@ -244,8 +244,8 @@ function loadPhotos() {
         'a.jpg', 'b.jpg', 'c.jpg', 'd.jpg',
         'e.jpg', 'f.jpg', 'g.jpg', 'h.jpg',
         'i.jpg', 'j.jpg', 'k.jpg', 'l.jpg',
-        'm.jpg', 'n.jpg', 'o.jpg', 'q.jpg',
-        'r.jpg', 's.jpg', 't.jpg', 'u.jpeg',
+        'm.JPG', 'n.JPG', 'o.JPG', 'q.jpg',
+        'r.JPG', 's.jpg', 't.JPG', 'u.jpeg',
         'v.jpeg', 'w.jpeg', 'x.jpeg', 'y.jpeg',
         'z.jpeg', 'a1.jpeg', 'b1.jpeg', 'c1.jpeg',
         'd1.jpeg', 'e1.jpeg', 'f1.jpeg', 'g1.jpeg',
@@ -340,7 +340,7 @@ function showPhotos() {
             }
         });
     });
-    
+
     
     // 移动端菜单切换
     mobileMenu.addEventListener('click', function() {
