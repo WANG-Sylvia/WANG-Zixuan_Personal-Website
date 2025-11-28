@@ -106,7 +106,7 @@ function loadPosters() {
     const posterFiles = [
         '1.jpg', '2.jpg', '3.jpg', '4.png',
         '5.jpg', '6.png', '7.jpg', '8.jpg',
-        '9.jpg', '10.jpg', '11.jpg', '12.jpg'
+        '9.jpg', 
     ];
     
     // 清空现有内容
@@ -149,11 +149,6 @@ function showPoster() {
         mobileMenu.classList.remove('active');
     }
 }
-
-
-
-
-
 
 
     
@@ -248,7 +243,16 @@ function loadPhotos() {
     const photoFiles = [
         'a.jpg', 'b.jpg', 'c.jpg', 'd.jpg',
         'e.jpg', 'f.jpg', 'g.jpg', 'h.jpg',
-        'i.jpg', 'j.jpg', 'k.jpg', 
+        'i.jpg', 'j.jpg', 'k.jpg', 'l.jpg',
+        'm.jpg', 'n.jpg', 'o.jpg', 'q.jpg',
+        'r.jpg', 's.jpg', 't.jpg', 'u.jpeg',
+        'v.jpeg', 'w.jpeg', 'x.jpeg', 'y.jpeg',
+        'z.jpeg', 'a1.jpeg', 'b1.jpeg', 'c1.jpeg',
+        'd1.jpeg', 'e1.jpeg', 'f1.jpeg', 'g1.jpeg',
+        'h1.jpeg', 'i1.jpeg', 'j1.jpeg', 'k1.jpeg',
+        'l1.jpeg', 'm1.jpeg', 'n1.jpeg', 'o1.jpg',
+        'p1.jpg', 'q1.jpg', 'r1.jpg', 's1.jpg',
+        's1.jpg', 't1.jpg', 'u1.jpg', 'v1.jpg',
     ];
     
     // 清空现有内容

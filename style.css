@@ -7,7 +7,7 @@
 }
 
 body {
-            background-image: url('p.jpg');
+            background-image: url('backgroudall.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -17,7 +17,7 @@ body {
 
 /* 导航栏样式 */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(220, 225, 228, 0.95);
     padding: 15px 0;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -135,7 +135,7 @@ body {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
+    max-width: 1300px;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -196,9 +196,9 @@ body {
 }
 
 .greeting {
-    font-size: 36px;
+    font-size: 72px;
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: #0b5285;
     position: relative;
     display: inline-block;
 }
@@ -215,14 +215,14 @@ body {
 }
 
 .title {
-    font-size: 18px;
+    font-size: 48px;
     margin-bottom: 25px;
-    color: #7f8c8d;
+    color: #b7adcb;
     font-weight: 500;
 }
 
 .description {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
     margin-bottom: 30px;
     color: #555;
@@ -274,7 +274,7 @@ body {
 
 /* 成长经历区域样式 */
 .journey-section {
-    max-width: 1000px;
+    max-width: 1300px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
@@ -286,8 +286,8 @@ body {
 
 #tree-container {
     width: 100%;
-    height: 600px;
-    margin: 20px 0;
+    height: 550px;
+    margin: 18px 0;
     overflow: visible;
     box-sizing: border-box;
 }
@@ -297,10 +297,10 @@ body {
 }
 
 .node circle {
-    fill: #3498db;
+    fill: #463b36;
     stroke: #2980b9;
-    stroke-width: 2px;
-    transition: all 0.3s;
+    stroke-width: 1px;
+    transition: all 0.4s;
 }
 
 .node text {
@@ -361,7 +361,7 @@ body {
 
 /* 点密度地图区域样式 */
 .map-section {
-    max-width: 1000px;
+    max-width: 1300px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
@@ -617,7 +617,7 @@ body {
 .project-container {
     max-width: 1000px;
     margin: 40px auto;
-    background-color: white;
+    background-color: rgb(209, 224, 255);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 40px;
@@ -706,7 +706,7 @@ body {
 .category-link {
     display: inline-block;
     background: rgba(52, 152, 219, 0.1);
-    color: #3498db;
+    color: #166da7;
     padding: 8px 16px;
     border-radius: 20px;
     text-decoration: none;
@@ -747,14 +747,14 @@ body {
 }
 
 .poster-header h1 {
-    font-size: 36px;
-    color: #2c3e50;
+    font-size: 56px;
+    color: #1c2d3d;
     margin-bottom: 10px;
 }
 
 .poster-description {
-    font-size: 18px;
-    color: #7f8c8d;
+    font-size: 20px;
+    color: #170561;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -885,7 +885,7 @@ body {
 
 /* Work Experience 页面样式 */
 .work-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 40px auto;
     background-color: white;
     border-radius: 20px;
@@ -946,6 +946,10 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
 
 .work-company {
     font-size: 24px;
@@ -1022,14 +1026,14 @@ body {
 }
 
 .photos-header h1 {
-    font-size: 36px;
-    color: #2c3e50;
+    font-size: 68px;
+    color: #18222c;
     margin-bottom: 10px;
 }
 
 .photos-description {
     font-size: 18px;
-    color: #7f8c8d;
+    color: #0d512e;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -1149,7 +1153,7 @@ body {
 
 /* Contact Me 区域样式 */
 .contact-section {
-    max-width: 1000px;
+    max-width: 1300px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
