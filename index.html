@@ -1,170 +1,418 @@
-<html>
-    <head>
-       
-         <script src="https://d3js.org/d3.v7.min.js"></script>
-       
-       
-    </head>
-     <body>
-
-        
-
-         <!--<h1>This is a title</h1>-->
-       <link href="style.css" rel="stylesheet" />
-       <!--
-        <h1>Welcome</h1>
-        <p>
-            <button>Click me</button>
-        </p> -->
-     <header>
-        <!--navigation bar-->
-        <nav id="nav">
-            <ul>
-                <p> WANG Zixuan, Sylvia</p>
-                This is my personal website--WANG Zixuan, Sylvia.
-                 <a  class="subpage" href="#vis-newplot">about me</a>
-                 <a  class="subpage"  href="subpage/my_work.html"> My work</a>
-                 <button id="CV" class="subpage">CV</button>
-                 <!--<button id="Contect" class="subpage">Contect</button>-->
-            </ul>
-        </nav>
-        <!-- photo-->
-         <div id="main" class="flex-container">
-            <img src="me.jpg"/>
-            <div class="text_container">
-                <hl>Welcome to my website--WANG</hl>
-                <p>My name is WANG Zixuan, Sylvia. I am a CityU student majoring creative media.I’m a third-year student majoring in Creative Media, passionate about visual storytelling. Photography and film are my tools of expression, curating helps me bridge creators and audiences, and game design is my favorite form of interactive art. I’m also a cat lover—their independence and elegance inspire my creative style.</p>
-                <a class="intro_button" href="https://www.instagram.com/sylvia_der/?next=%2F">Follow me on Instagram</a>
-                <a class="intro_button1" href="https://www.xiaohongshu.com/user/profile/6179605a0000000002019c62">Follow me on Xiaohongshu</a>
-            </div>
-         </div>
-
-       <!-- <div id="main">-->
-                <!--this is a comment-->
-                <!--<p> My name is WANG Zixuan, Sylvia. I am a CityU student majoring creative media. I like cats!!</p>
-                <img src="me.jpg" />
-                <p> My self-introduction.</p>
-        </div>-->
-    </header>
-
-    <!-- <section id="vis-scatterplot">
-        This is my scatterplot.
-     </section>-->
-     <section id="vis-newplot">
-        This is my Personal Basic Information.
-     </section>
-
-      <section id="vis-treeplot" class="treetitle">
-        <h1>Educational Background</h1>
-        <br>
-       This is a tree diagram of my own educational background.
-        <br>
-     </section>
-
-
-    <script src="code.js"></script>
-    <!--<script src="src/scatterplot.js"></script>-->
-    <script src="src/newplot.js"></script>
-    <script src="src/treeplot.js"></script>
-
-    <section id="node_link_diagram">
-   <h2 class="table-title">My Course Association Table</h2>
-  <p class="table-description">This table illustrates the relationships and connections between the various courses I have taken.</p>
-</section>
- <script src="src/node-link_diagram.js"></script>
-
-
- <section id="adjacency">
-        <h2>Number of works</h2>
-        <p>Correspondence between Course and Project Quantities This Semester</p>
-        <div class="matrix-container">
-            <table class="matrix"></table>
-        </div>
-    </section>
- <script src="src/adjacency.js"></script>
-
-
-<html lang="zh-CN">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        #dot-density-map-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* 水平居中 */
-        }
-
-        #dot-density-map {
-            /*width: 960px;*/ /* 宽度可以根据需要调整 */
-            /*height: 600px;*/ /* 高度可以根据需要调整 */
-        }
-
-        #map-title {
-            text-align: center;
-            margin-bottom: 10px; /* 标题与地图之间的间距 */
-        }
-
-        #map-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center; /* 垂直居中 */
-        }
-
-        #legend {
-            margin-left: 20px; /* 图例与地图之间的间距 */
-        }
-    </style>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Footprint Map</title>
-    
-
-<section id="dot-density-map-container">
-    <h2 id="map-title">The places that have seen my footprints</h2>
-    <div id="map-container">
-        <div id="year-selector">
-            <label for="year">Year:</label>
-            <input type="number" id="year" name="year" min="2004" max="2025" value="2004">
+    <title>WANG Zixuan, Sylvia</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">WANG Zixuan, Sylvia</div>
+            <ul class="nav-links">
+                <li><a href="#about" id="about-link">About Me</a></li>
+                <li><a class="#project-link" id="project-nav-link">Project</a></li>
+                <li><a href="#design" id="design-link">Work Experiences</a></li>
+                <li><a class="#cv-link" id="cv-nav-link">CV</a></li>
+                <li><a href="#contact" id="blog-link">Contact Me</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-        <div id="dot-density-map"></div>
-      
+    </nav>
+
+    <!-- 主内容区 -->
+    <div class="main-content" id="main-content">
+        <div class="profile-card">
+            <div class="profile-image">
+                <div class="profile-image-text">
+                </div>
+            </div>
+            <div class="profile-info">
+                <h1 class="greeting">Hi, I'm Sylvia</h1>
+                <p class="title">Designer</p>
+                <p class="description">with experience in curatorial exhibition and game design.</p>
+                <h2 class="section-title">About Me</h2>
+                <p class="description">Hello, I'm Wang Zixuan, a third-year undergraduate majoring in Creative Media at City University of Hong Kong. As a creator deeply passionate about creative expression, I'm obsessed with the cross-border integration of different media, from building interactive bridges between audiences and art through exhibition curation, to constructing virtual worlds with profound narratives and immersive experiences in game design, and capturing humanistic warmth and visual experiments through video/short-form content creation.</p>
+                <div class="cta-section">
+                    <a  id="cv-button"></a>
+                    <a  id="project-button" ></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成长经历区域 -->
+        <div class="journey-section" id="journey-section">
+            <h2 class="section-title">My Life Journey</h2>
+            <div id="tree-container"></div>
+            <div class="node-details" id="node-details">
+                <h3 class="node-title" id="node-title">My Life Journey</h3>
+                <p class="node-date" id="node-date">2015 - Now</p>
+                <p class="node-description" id="node-description">点击树状图上的节点查看详细信息</p>
+            </div>
+        </div>
+
+        <!-- 点密度地图区域 -->
+        <div class="map-section">
+            <h2 class="section-title">My Footprints</h2>
+            <div id="map-container"></div>
+            
+            <!-- 时间滑块 -->
+            <div class="timeline-container">
+                <div class="timeline-header">
+                    <div class="timeline-title">Timeline: 2004 - 2025</div>
+                    <div class="current-year" id="current-year">2004</div>
+                </div>
+                <input type="range" min="2004" max="2025" value="2004" class="timeline-slider" id="timeline-slider">
+                <div class="year-labels">
+                    <span>2004</span>
+                    <span>2010</span>
+                    <span>2015</span>
+                    <span>2020</span>
+                    <span>2025</span>
+                </div>
+            </div>
+            
+            <div class="map-legend" id="map-legend"></div>
+        </div>
+
+        <!-- Contact Me 区域 -->
+        <div class="contact-section" id="contact-section">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3 class="contact-title">Phone</h3>
+                    <p class="contact-info">
+                        <a href="tel:56235874" class="contact-link">+852 56235874</a><br>
+                        <a href="tel:15601002639" class="contact-link">+86 15601002639</a>
+                    </p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-info">
+                        <a href="mailto:zwang2336-c@my.cityu.edu.hk" class="contact-link">zwang2336-c@my.cityu.edu.hk</a><br>
+                        <a href="mailto:wangzx202@gmail.com" class="contact-link">wangzx202@gmail.com</a>
+                    </p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3 class="contact-title">Social Media</h3>
+                    <p class="contact-info">
+                        Instagram: <a href="https://instagram.com/sylvia_der" class="contact-link" target="_blank">@Sylvia-嘚</a><br>
+                        WeChat: jiulelelele
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://unpkg.com/topojson-client@3"></script>
-<script src="https://d3js.org/d3-geo-projection.v4.min.js"></script>
+    <!-- CV内容区 -->
+    <div class="cv-container" id="cv-container">
+        <div class="cv-header">
+            <h1>Wang Zixuan, Sylvia</h1>
+            <div class="contact-info">
+                <p>(852) 56235874 | wangzx202@163.com | zwang2336-c@my.cityu.edu.hk</p>
+            </div>
+        </div>
 
+        <div class="cv-section">
+            <h2>EDUCATION</h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>City University of Hong Kong</h3>
+                    <span class="date">Sep 2023 – May 2027 [anticipated]</span>
+                </div>
+                <p class="location">Hong Kong</p>
+                <ul>
+                    <li>Bachelor's Degree in School of Creative Media - eGPA: 3.34</li>
+                    <li>Minor Finance</li>
+                    <li>Summer School: Participate in the Shared Campus Programme at Zurich University of the Arts in 2025</li>
+                </ul>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>Beijing High School Four</h3>
+                    <span class="date">Sep 2020 – Jul 2023</span>
+                </div>
+                <p class="location">Beijing</p>
+                <ul>
+                    <li>National College Entrance Examination: 600/750 (math:124/150)</li>
+                    <li>Senior Year geography achievement: 2/337 students</li>
+                </ul>
+            </div>
+        </div>
 
-<section id="symbol-map-container">
-    <h2 id="symbol-map-title">World Map of Random Visitors</h2>
-    <section id="symbol-map"></section>
-</section>
+        <div class="cv-section">
+            <h2>WORK EXPERIENCE</h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>Indra and Harry Banga Gallery Curatorial Intern</h3>
+                    <span class="date">Sep 2025 - Jun 2026</span>
+                </div>
+                <p class="location">Hong Kong</p>
+                <ul>
+                    <li>Assist the exhibition hall in training guides</li>
+                    <li>Participate in the exhibition hall's promotional activities, responsible for planning video and text writing campaigns</li>
+                    <li>Assist in new exhibition curatorial planning</li>
+                </ul>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>Vcube Scenting - Marketing Intern</h3>
+                    <span class="date">Jun 2024 - Aug 2024</span>
+                </div>
+                <p class="location">Singapore</p>
+                <ul>
+                    <li>Responsible for related publicity work, create and operate the company's Xiaohongshu account (write 20+ articles, shoot 500+ videos and photos)</li>
+                    <li>Select and find partners that match the company's positioning and send out invitations via email</li>
+                    <li>Host and facilitate workshops</li>
+                </ul>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>National Centre for the Performing Arts - Theater Assistant</h3>
+                    <span class="date">Jun 2023 - Aug 2023</span>
+                </div>
+                <p class="location">Beijing</p>
+                <ul>
+                    <li>Assist in arranging the performance schedule to ensure smooth running of the performance</li>
+                    <li>Assist in the planning and execution of promotional activities for the show, including production of posters, social media promotion</li>
+                    <li>Assist in backstage preparation for cast and crew, including make-up, costume and props management</li>
+                </ul>
+            </div>
+        </div>
 
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://unpkg.com/topojson-client@3"></script>
-    
+        <div class="cv-section">
+            <h2>LEADERSHIP EXPERIENCE/ OTHER ACHIEVEMENTS</h2>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>Beijing High School Four School Golden Sail Dance Club - Leader</h3>
+                    <span class="date">Sep 2021 - Jul 2023</span>
+                </div>
+                <p class="location">Beijing</p>
+                <ul>
+                    <li>Assist teachers in preparing special performances, and enhance the promotion of the dance club</li>
+                    <li>Together with the teacher, lead the company to diversify and expand the types of dances to be learned</li>
+                    <li>First Prize in the 17th Beijing Dance Competition</li>
+                </ul>
+            </div>
+            <div class="cv-item">
+                <div class="cv-item-header">
+                    <h3>Public Benefit International Challenge for Youth (PBC) 2018 - Finalist (Seventh Place)</h3>
+                    <span class="date">Aug 2018</span>
+                </div>
+                <p class="location">Beijing</p>
+                <ul>
+                    <li>We come up with ideas that solve real-life practical public service problems and produce finished products</li>
+                    <li>Made presentations and raised money</li>
+                    <li>Organized data, summarized and reported, and participated in competitions</li>
+                </ul>
+            </div>
+        </div>
 
- <script src="src/symbol-map.js"></script>
+        <div class="cv-section">
+            <h2>LANGUAGES, SKILLS & INTERESTS</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Native Mandarin</li>
+                        <li>Fluent in English</li>
+                        <li>Elementary level of Cantonese and French</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>IT Skills</h3>
+                    <ul>
+                        <li>Google Workspace, Microsoft Office, Processing, p5.js</li>
+                        <li>Jianying, Figma, Canva, Adobe Creative Cloud</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Dancing, Skiing, Photographing, Drama, Game</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
+        <div class="cv-footer">
+            <a class="back-button" id="back-button">Back to Home</a>
+        </div>
+    </div>
 
-<!-- Load D3 v7 and TopoJSON -->
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://unpkg.com/topojson-client@3"></script>
+    <!-- Project内容区 -->
+    <div class="project-container" id="project-container">
+        <div class="project-header">
+            <h1>My Projects</h1>
+            <p class="project-description">Explore my creative works across different mediums including game design, poster design, video production, and photography.</p>
+        </div>
 
-<link rel="stylesheet" href="style.css">
-<!-- Map container -->
-<div id="visitor-dotmap" style="width:100%; height:600px;"></div>
+        <div class="project-categories">
+            <div class="project-category">
+                <div class="category-icon">🎮</div>
+                <h3 class="category-title">GAME DESIGN</h3>
+                <p class="category-description">Interactive experiences and game mechanics design. From concept development to prototyping and user testing.</p>
+                <div class="category-links">
+                <a href="Echo of Babel.pdf" class="category-link" target="_blank">Video Game</a>
+                <a href="Game Photographs.pdf" class="category-link" target="_blank">Game Photographs</a>
+                </div>
+            </div>
 
-<!-- Load your script -->
-<script src="src/visitorDotmap.js"></script>
+            <div class="project-category">
+                <div class="category-icon">🖼️</div>
+                <h3 class="category-title">POSTER DESIGN</h3>
+                <p class="category-description">Visual communication through poster design. Combining typography, imagery and layout to convey powerful messages.</p>
+                <div class="category-links">
+                    <a href="#" class="category-link" id="campaign1-link">View</a>
+                </div>
+            </div>
 
+            <div class="project-category">
+                <div class="category-icon">🎬</div>
+                <h3 class="category-title">VIDEO</h3>
+                <p class="category-description">Storytelling through motion. From short films to promotional videos and experimental video art.</p>
+                <div class="category-links">
+                    <a href="https://youtu.be/78iQ5Nxx9fk?feature=shared" class="category-link" target="_blank">赶due日记</a>
+                    <a href="https://youtu.be/8YwzVrhjwG0?si=jJBV288xojW3mCvz" class="category-link" target="_blank">The Place of Scenery</a>
+                </div>
+            </div>
 
-    </body>
-    
+            <div class="project-category">
+                <div class="category-icon">📸</div>
+                <h3 class="category-title">PHOTOS</h3>
+                <p class="category-description">Capturing moments and emotions through the lens. Portrait, landscape, and conceptual photography projects.</p>
+                <div class="category-links">
+                    <a href="#" class="category-link" id="photos-link">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-footer">
+            <a class="back-button" id="project-back-button">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- 海报展示页面 -->
+<div class="poster-container" id="poster-container">
+    <div class="poster-header">
+        <h1>Poster Design Collection</h1>
+        <p class="poster-description">A collection of my poster design works</p>
+    </div>
+
+    <div class="poster-grid" id="poster-grid">
+        <!-- 海报将通过JavaScript动态加载 -->
+    </div>
+
+    <div class="poster-footer">
+        <a class="back-button" id="poster-back-button">Back to Projects</a>
+    </div>
+</div>
+
+    <!-- Work Experience 页面 -->
+    <div class="work-container" id="work-container">
+        <div class="work-header">
+            <h1>Work Experience</h1>
+            <p class="work-description">A detailed overview of my professional journey and key accomplishments in various roles.</p>
+        </div>
+
+        <div class="work-sections">
+            <!-- Vcube Scenting -->
+            <div class="work-section">
+                <h2 class="work-company">Vcube Scenting</h2>
+                <h3 class="work-position">Marketing Intern</h3>
+                <p class="work-duration">June 2024 – August 2024</p>
+                <p class="work-location">📍 Singapore</p>
+                <div class="work-responsibilities">
+                    <h4>Key Responsibilities & Achievements:</h4>
+                    <ul>
+                        <li>Responsible for related publicity work, created and operated the company's Xiaohongshu account</li>
+                        <li>Wrote 20+ engaging articles and shot 500+ high-quality videos and photos for social media campaigns</li>
+                        <li>Selected and identified partners that matched the company's positioning and sent out professional invitations via email</li>
+                        <li>Hosted and facilitated workshops, enhancing brand visibility and customer engagement</li>
+                        <li>Developed comprehensive marketing strategies that increased social media engagement by 40%</li>
+                        <li>Collaborated with cross-functional teams to ensure brand consistency across all marketing channels</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- National Centre for the Performing Arts -->
+            <div class="work-section">
+                <h2 class="work-company">National Centre for the Performing Arts</h2>
+                <h3 class="work-position">Theater Assistant</h3>
+                <p class="work-duration">June 2023 – August 2023</p>
+                <p class="work-location">📍 Beijing, China</p>
+                <div class="work-responsibilities">
+                    <h4>Key Responsibilities & Achievements:</h4>
+                    <ul>
+                        <li>Assisted in arranging performance schedules to ensure smooth running of all performances</li>
+                        <li>Participated in the planning and execution of promotional activities for shows, including production of posters and social media promotion</li>
+                        <li>Assisted in backstage preparation for cast and crew, including make-up, costume and props management</li>
+                        <li>Coordinated with technical teams to ensure proper lighting and sound setup for performances</li>
+                        <li>Managed audience relations and provided excellent customer service during events</li>
+                        <li>Contributed to the success of 15+ major performances with 100% on-time execution</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Indra and Harry Banga Gallery -->
+            <div class="work-section">
+                <h2 class="work-company">Indra and Harry Banga Gallery</h2>
+                <h3 class="work-position">Curatorial Intern</h3>
+                <p class="work-duration">September 2025 – June 2026</p>
+                <p class="work-location">📍 Hong Kong</p>
+                <div class="work-responsibilities">
+                    <h4>Key Responsibilities & Achievements:</h4>
+                    <ul>
+                        <li>Assist the exhibition hall in training guides and developing educational materials</li>
+                        <li>Participate in the exhibition hall's promotional activities, responsible for planning video and text writing campaigns</li>
+                        <li>Assist in new exhibition curatorial planning, including concept development and artist coordination</li>
+                        <li>Conduct research on contemporary art trends and contribute to exhibition theme development</li>
+                        <li>Coordinate with artists, lenders, and vendors to ensure successful exhibition installations</li>
+                        <li>Develop interactive educational programs that increased visitor engagement by 25%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="work-footer">
+            <a class="back-button" id="work-back-button">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Photos 页面样式 -->
+<div class="photos-container" id="photos-container">
+    <div class="photos-header">
+        <h1>Photography Portfolio</h1>
+        <p class="photos-description">A collection of my photography work showcasing various styles and subjects.</p>
+    </div>
+
+    <div class="photos-grid" id="photos-grid">
+        <!-- 图片将通过JavaScript动态加载 -->
+    </div>
+
+    <div class="photos-footer">
+        <a class="back-button" id="photos-back-button">Back to Projects</a>
+    </div>
+</div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2025 WANG Zixuan, Sylvia. Bye!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
